@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ezekiel Kedemi | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(135deg, #0d0d2b 0%, #1a1a3d 100%); 
+      color: #e0e0e0; 
+      line-height: 1.6; 
+      overflow-x: hidden; 
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Navigation */
+    nav {
+      background: rgba(10, 10, 20, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 255, 255, 0.1);
+    }
+    nav .logo {
+      color: #00f0ff;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: #e0e0e0;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00f0ff;
+      transform: translateY(-2px);
+      text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 2rem;
+      background: linear-gradient(180deg, rgba(10, 10, 20, 0.8), transparent);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1), transparent);
+      z-index: -1;
+    }
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #00f0ff;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+      animation: fadeIn 1s ease-in;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      color: #b0b0b0;
+      font-size: 1.2rem;
+    }
+    .hero .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .hero .badges span {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #00f0ff;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hero .badges span:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    .hero .cta a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .cta-primary {
+      background: linear-gradient(45deg, #00f0ff, #007bff);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+    .cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    }
+    .cta-secondary {
+      background: transparent;
+      border: 2px solid #00f0ff;
+      color: #00f0ff;
+    }
+    .cta-secondary:hover {
+      background: rgba(0, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Highlights */
+    .highlights {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      background: linear-gradient(45deg, #1a73e8, #00f0ff);
+      color: #fff;
+      padding: 2rem 1rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+    .highlight {
+      text-align: center;
+      margin: 1rem;
+      transition: transform 0.3s;
+    }
+    .highlight:hover {
+      transform: scale(1.1);
+    }
+    .highlight h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .highlight p {
+      opacity: 0.9;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00f0ff;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .service {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+    .service h3 {
+      color: #00f0ff;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Roles Section */
+    #roles {
+      background: linear-gradient(180deg, rgba(10, 10, 20, 0.9), rgba(26, 26, 61, 0.9));
+      padding: 4rem 2rem;
+    }
+    .role-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+    .tab-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #e0e0e0;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: all 0.3s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: #00f0ff;
+      color: #0d0d2b;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+    .tech-stack {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .tech-stack div {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.5rem;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .tech-stack div:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    .tech-stack i {
+      font-size: 40px;
+      color: #00f0ff;
+    }
+    .role-buttons a {
+      display: inline-block;
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-primary {
+      background: linear-gradient(45deg, #00f0ff, #007bff);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+      transform: translateY(-3px);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #00f0ff;
+      color: #00f0ff;
+    }
+    .btn-secondary:hover {
+      background: rgba(0, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+    #matrixCanvas {
+      background: #000;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      width: 100%;
+      max-width: 500px;
+      height: 400px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+    .project h3 {
+      color: #00f0ff;
+      margin-bottom: 0.5rem;
+    }
+    .tags {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tags span {
+      background: rgba(0, 255, 255, 0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      color: #00f0ff;
+    }
+
+    /* Education & Experience */
+    .edu-exp-tabs {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .edu-exp-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #e0e0e0;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: all 0.3s;
+    }
+    .edu-exp-btn.active, .edu-exp-btn:hover {
+      background: #00f0ff;
+      color: #0d0d2b;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+    .timeline {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      margin-bottom: 1rem;
+      transition: transform 0.3s;
+    }
+    .timeline:hover {
+      transform: translateY(-5px);
+    }
+    .timeline h3 {
+      color: #00f0ff;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .testimonial {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      font-style: italic;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+
+    /* Contact */
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #e0e0e0;
+      transition: border-color 0.3s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: #00f0ff;
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    .contact-form button {
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(45deg, #00f0ff, #007bff);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .contact-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    }
+
+    /* Snake Game */
+    #snakeGame {
+      background: linear-gradient(180deg, rgba(10, 10, 20, 0.9), rgba(26, 26, 61, 0.9));
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #gameCanvas {
+      background: #000;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      display: block;
+      margin: 1rem auto;
+    }
+    #gameControls button {
+      padding: 0.5rem 1rem;
+      background: linear-gradient(45deg, #00f0ff, #007bff);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      margin: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    #gameControls button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(10, 10, 20, 0.9);
+      backdrop-filter: blur(10px);
+      color: #e0e0e0;
+      margin-top: 2rem;
+      box-shadow: 0 -2px 5px rgba(0, 255, 255, 0.1);
+    }
+    footer a {
+      color: #00f0ff;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #007bff;
+      text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      nav ul { flex-direction: column; gap: 1rem; }
+      .highlights { flex-direction: column; }
+      #roles > div { flex-direction: column; align-items: center; }
+      .edu-exp-tabs { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo"><i class="fas fa-code"></i> Ezekiel Kedemi</div>
+    <ul>
+      <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+      <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+      <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Hi, I'm Ezekiel Kedemi</h1>
+    <p>Software Engineer | Junior Developer at Softlink Options | Passionate about building scalable web systems and innovative digital solutions.</p>
+    <div class="badges">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>Laravel</span><span>WordPress</span>
+    </div>
+    <div class="cta">
+      <a href="#projects" class="cta-primary">View Projects</a>
+      <a href="#contact" class="cta-secondary">Hire Me</a>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <div class="highlights">
+    <div class="highlight"><h2>5+</h2><p>Years Coding</p></div>
+    <div class="highlight"><h2>4</h2><p>Major Projects</p></div>
+    <div class="highlight"><h2>8+</h2><p>Technologies</p></div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Services</h2>
+    <div class="services-grid">
+      <div class="service"><h3>Custom Web Development</h3><p>Responsive, high-performance websites tailored to your needs.</p></div>
+      <div class="service"><h3>E-commerce Solutions</h3><p>Scalable online stores with secure payment integrations.</p></div>
+      <div class="service"><h3>WordPress Development</h3><p>SEO-friendly WordPress sites and custom themes.</p></div>
+      <div class="service"><h3>POS & Inventory Systems</h3><p>Efficient management solutions for businesses.</p></div>
+    </div>
+  </section>
+
+  <!-- ROLES SECTION -->
+  <section id="roles">
+    <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+      <div style="flex: 1; min-width: 300px;">
+        <div class="role-tabs">
+          <button class="tab-btn active" data-role="developer">Developer</button>
+          <button class="tab-btn" data-role="architect">Architect</button>
+          <button class="tab-btn" data-role="mentor">Mentor</button>
+        </div>
+        <div id="role-content"></div>
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <canvas id="matrixCanvas" width="500" height="400"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>E-commerce Platform</h3>
+        <p>A scalable online store built with Laravel and Vue.js, featuring secure payment gateways.</p>
+        <div class="tags">
+          <span>Laravel</span><span>Vue.js</span><span>MySQL</span>
+        </div>
+      </div>
+      <div class="project">
+        <h3>Inventory Management System</h3>
+        <p>A POS and inventory system for small businesses, developed with PHP and JavaScript.</p>
+        <div class="tags">
+          <span>PHP</span><span>JavaScript</span><span>Bootstrap</span>
+        </div>
+      </div>
+      <div class="project">
+        <h3>WordPress Portfolio Theme</h3>
+        <p>A custom WordPress theme for creative professionals with SEO optimization.</p>
+        <div class="tags">
+          <span>WordPress</span><span>PHP</span><span>CSS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & EXPERIENCE -->
+  <section id="education">
+    <h2>Education & Experience</h2>
+    <div class="edu-exp-tabs">
+      <button class="edu-exp-btn active" data-tab="education">Education</button>
+      <button class="edu-exp-btn" data-tab="experience">Experience</button>
+    </div>
+    <div id="edu-exp-content">
+      <div id="education-content">
+        <div class="timeline">
+          <h3>B.Sc. Computer Science</h3>
+          <p>University of Technology, 2018-2022</p>
+          <p>Graduated with honors, specializing in web development and database systems.</p>
+        </div>
+      </div>
+      <div id="experience-content" style="display: none;">
+        <div class="timeline">
+          <h3>Junior Developer at Softlink Options</h3>
+          <p>2022-Present</p>
+          <p>Developed web applications and maintained client projects using Laravel and WordPress.</p>
+        </div>
+        <div class="timeline">
+          <h3>Freelance Web Developer</h3>
+          <p>2020-2022</p>
+          <p>Built custom websites and e-commerce solutions for small businesses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"Ezekiel delivered an outstanding e-commerce platform that boosted our sales."</p>
+        <p><strong>- Client A</strong></p>
+      </div>
+      <div class="testimonial">
+        <p>"His WordPress expertise transformed our online presence."</p>
+        <p><strong>- Client B</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- SNAKE GAME -->
+  <section id="snakeGame">
+    <h2>Play a Game</h2>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div id="gameControls">
+      <button onclick="startGame()">Start Game</button>
+      <button onclick="resetGame()">Reset</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Ezekiel Kedemi. All rights reserved. | <a href="#contact">Contact</a> | <a href="https://github.com/ezekielkedemi">GitHub</a></p>
+  </footer>
+
+  <script>
+    // Roles Section
+    const rolesData = {
+      developer: { 
+        title: "Building Digital Excellence", 
+        subtitle: "Senior Full Stack Developer crafting exceptional web experiences with cutting-edge technologies.", 
+        tech: [
+          {icon:"devicon-react-original", name:"React"},
+          {icon:"devicon-nodejs-plain", name:"Node.js"},
+          {icon:"devicon-remix-original", name:"Remix"},
+          {icon:"devicon-typescript-plain", name:"TypeScript"},
+          {icon:"devicon-nextjs-original", name:"Next.js"},
+          {icon:"devicon-postgresql-plain", name:"PostgreSQL"},
+          {icon:"devicon-redis-plain", name:"Redis"},
+          {icon:"devicon-graphql-plain", name:"GraphQL"}
+        ], 
+        buttons: [{ text: "View Projects", link: "#projects", primary: true }, { text: "Contact Me", link: "#contact", primary: false }] 
+      },
+      architect: { 
+        title: "Designing Scalable Solutions", 
+        subtitle: "Software Architect designing robust, scalable systems that stand the test of time.", 
+        tech: [
+          {icon:"devicon-react-original", name:"React"},
+          {icon:"devicon-nodejs-plain", name:"Node.js"},
+          {icon:"devicon-remix-original", name:"Remix"},
+          {icon:"devicon-typescript-plain", name:"TypeScript"},
+          {icon:"devicon-nextjs-original", name:"Next.js"},
+          {icon:"devicon-postgresql-plain", name:"PostgreSQL"},
+          {icon:"devicon-redis-plain", name:"Redis"},
+          {icon:"devicon-graphql-plain", name:"GraphQL"}
+        ], 
+        buttons: [] 
+      },
+      mentor: { 
+        title: "Inspiring Next Generation", 
+        subtitle: "Tech Mentor guiding the next generation of developers towards excellence.", 
+        tech: [
+          {icon:"devicon-react-original", name:"React"},
+          {icon:"devicon-nodejs-plain", name:"Node.js"},
+          {icon:"devicon-remix-original", name:"Remix"},
+          {icon:"devicon-typescript-plain", name:"TypeScript"},
+          {icon:"devicon-nextjs-original", name:"Next.js"},
+          {icon:"devicon-postgresql-plain", name:"PostgreSQL"},
+          {icon:"devicon-redis-plain", name:"Redis"},
+          {icon:"devicon-graphql-plain", name:"GraphQL"}
+        ], 
+        buttons: [{ text: "Start Learning", link: "#contact", primary: true }, { text: "View Courses", link: "#courses", primary: false }] 
+      }
+    };
+
+    const contentDiv = document.getElementById("role-content");
+    const tabButtons = document.querySelectorAll(".tab-btn");
+
+    function renderRole(role) {
+      const data = rolesData[role];
+      contentDiv.innerHTML = `
+        <h3 style="color:#00f0ff; text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);">${data.title}</h3>
+        <p>${data.subtitle}</p>
+        <div class="tech-stack">
+          ${data.tech.map(t => `
+            <div>
+              <i class="${t.icon}"></i>
+              <span>${t.name}</span>
+            </div>
+          `).join("")}
+        </div>
+        <div class="role-buttons">
+          ${data.buttons.map(btn => `
+            <a href="${btn.link}" class="${btn.primary ? 'btn-primary' : 'btn-secondary'}">${btn.text}</a>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderRole(btn.dataset.role);
+      });
+    });
+
+    renderRole("developer");
+
+    // Matrix Animation
+    const matrixCanvas = document.getElementById("matrixCanvas");
+    const ctx = matrixCanvas.getContext("2d");
+    matrixCanvas.height = 400;
+    matrixCanvas.width = matrixCanvas.parentElement.offsetWidth > 500 ? 500 : matrixCanvas.parentElement.offsetWidth;
+    
+    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+    const fontSize = 14;
+    const columns = matrixCanvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+      ctx.fillStyle = "#00f0ff";
+      ctx.font = `${fontSize}px Orbitron`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.random() * chars.length);
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+        ctx.fillText(text, x, y);
+        if (y > matrixCanvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 33);
+    window.addEventListener("resize", () => {
+      matrixCanvas.width = matrixCanvas.parentElement.offsetWidth > 500 ? 500 : matrixCanvas.parentElement.offsetWidth;
+      drops.length = Math.floor(matrixCanvas.width / fontSize);
+      for (let i = 0; i < drops.length; i++) if (!drops[i]) drops[i] = 1;
+    });
+
+    // Education & Experience Tabs
+    const eduExpButtons = document.querySelectorAll(".edu-exp-btn");
+    const eduExpContent = document.getElementById("edu-exp-content");
+    const educationContent = document.getElementById("education-content");
+    const experienceContent = document.getElementById("experience-content");
+
+    eduExpButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        eduExpButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        educationContent.style.display = btn.dataset.tab === "education" ? "block" : "none";
+        experienceContent.style.display = btn.dataset.tab === "experience" ? "block" : "none";
+      });
+    });
+
+    // Snake Game
+    const gameCanvas = document.getElementById("gameCanvas");
+    const gameCtx = gameCanvas.getContext("2d");
+    const gridSize = 20;
+    let snake = [{ x: 10, y: 10 }];
+    let food = { x: 15, y: 15 };
+    let dx = 0;
+    let dy = 0;
+    let gameLoop;
+    let score = 0;
+
+    function drawGame() {
+      gameCtx.fillStyle = "rgba(0, 0, 0, 0.8)";
+      gameCtx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+      // Draw snake
+      snake.forEach(segment => {
+        gameCtx.fillStyle = "#00f0ff";
+        gameCtx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+      });
+
+      // Draw food
+      gameCtx.fillStyle = "#ff007a";
+      gameCtx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+
+      // Move snake
+      const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+      snake.unshift(head);
+
+      // Check if snake ate food
+      if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        food = {
+          x: Math.floor(Math.random() * (gameCanvas.width / gridSize)),
+          y: Math.floor(Math.random() * (gameCanvas.height / gridSize))
+        };
+      } else {
+        snake.pop();
+      }
+
+      // Check collision
+      if (head.x < 0 || head.x >= gameCanvas.width / gridSize || head.y < 0 || head.y >= gameCanvas.height / gridSize ||
+          snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)) {
+        clearInterval(gameLoop);
+        alert(`Game Over! Score: ${score}`);
+      }
+    }
+
+    function startGame() {
+      if (!gameLoop) {
+        gameLoop = setInterval(drawGame, 100);
+      }
+    }
+
+    function resetGame() {
+      clearInterval(gameLoop);
+      gameLoop = null;
+      snake = [{ x: 10, y: 10 }];
+      food = { x: 15, y: 15 };
+      dx = 0;
+      dy = 0;
+      score = 0;
+      drawGame();
+    }
+
+    document.addEventListener("keydown", e => {
+      switch (e.key) {
+        case "ArrowUp":
+          if (dy === 0) { dx = 0; dy = -1; }
+          break;
+        case "ArrowDown":
+          if (dy === 0) { dx = 0; dy = 1; }
+          break;
+        case "ArrowLeft":
+          if (dx === 0) { dx = -1; dy = 0; }
+          break;
+        case "ArrowRight":
+          if (dx === 0) { dx = 1; dy = 0; }
+          break;
+      }
+    });
+
+    drawGame();
+  </script>
+</body>
+</html>
